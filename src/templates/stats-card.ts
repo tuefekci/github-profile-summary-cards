@@ -7,7 +7,7 @@ export function createStatsCard(
     statsData: {index: number; icon: string; name: string; value: string}[],
     theme: Theme
 ) {
-    const card = new Card(title, 340, 200, theme);
+    const card = new Card(title, 415, 200, theme);
     const svg = card.getSVG();
 
     // draw icon

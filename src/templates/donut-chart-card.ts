@@ -12,7 +12,7 @@ export function createDonutChartCard(
         return d.value;
     });
     const pieData = pie(data);
-    const card = new Card(title, 340, 200, theme);
+    const card = new Card(title, 415, 200, theme);
 
     const margin = 10;
     const radius = (Math.min(card.width, card.height) - 2 * margin - card.yPadding) / 2;

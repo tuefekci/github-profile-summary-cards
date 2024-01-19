@@ -5,7 +5,7 @@ import * as d3Axis from 'd3-axis';
 
 export function createProductiveCard(chartData: number[], theme: Theme, utcOffset: number) {
     const title = 'Commits ' + '(UTC ' + (utcOffset >= 0 ? '+' : '') + utcOffset.toFixed(2) + ')';
-    const card = new Card(title, 340, 200, theme);
+    const card = new Card(title, 415, 200, theme);
     const svg = card.getSVG();
 
     const chartWidth = card.width - 60;
