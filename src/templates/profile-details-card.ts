@@ -14,7 +14,7 @@ export function createDetailCard(
     contributionsData: {contributionCount: number; date: Date}[],
     theme: Theme
 ) {
-    const card = new Card(title, 830, 200, theme);
+    const card = new Card(title, 828, 200, theme);
     const svg = card.getSVG();
 
     // draw icon
