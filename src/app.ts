@@ -26,15 +26,33 @@ const execCmd = (cmd: string, args: string[] = []) =>
     });
 
 const commitFile = async () => {
-    try {
-        await execCmd('git', ['pull']);   
+    try { 
         await execCmd('git', ['config', '--global', 'user.email', 'profile-bot@tuefekci.de']);
         await execCmd('git', ['config', '--global', 'user.name', 'profile[bot]']);
-        await execCmd('git', ['add', OUTPUT_PATH]);
-        await execCmd('git', ['commit', '-m', 'Generate profile summary cards']);
-        await execCmd('git', ['push']);        
     } catch (error: any) {
-        core.error(`Error when commitFile \n${error.stack}`);
+        core.error(`Error when commitFile -> set config \n${error.stack}`);
+        throw error;
+    }
+
+    try { 
+        await execCmd('git', ['add', OUTPUT_PATH]);
+    } catch (error: any) {
+        core.error(`Error when commitFile -> add OUTPUT_PATH \n${error.stack}`);
+        throw error;
+    }
+
+    try { 
+        await execCmd('git', ['commit', '-m', 'Generate profile summary cards']);
+    } catch (error: any) {
+        core.error(`Error when commitFile -> commit \n${error.stack}`);
+        throw error;
+    }
+
+    try { 
+        await execCmd('git', ['push', '--force']);        
+    } catch (error: any) {
+        core.error(`Error when commitFile -> push \n${error.stack}`);
+        throw error;
     }
 };
 
